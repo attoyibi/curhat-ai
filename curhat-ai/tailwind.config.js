@@ -15,7 +15,7 @@ module.exports = {
     },
   },
   darkMode: "class", // Mengaktifkan dark mode berbasis class
-  plugins: [require("rippleui")],
+  plugins: [require("rippleui"), require('daisyui'),],
   rippleui: {
     themes: [
       {
