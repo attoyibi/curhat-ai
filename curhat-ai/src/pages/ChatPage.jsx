@@ -71,7 +71,7 @@ const ChatPage = () => {
                     sender: "AI",
                     text: response.data.choices[0].message.content,
                 };
-
+                console.log('Response:', response.data);
                 setMessages((prevMessages) => [...prevMessages, aiMessage]);
             } catch (error) {
                 console.error("Error fetching data from OpenAI:", error);
