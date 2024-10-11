@@ -17,7 +17,7 @@ const Login = () => {
         }
 
         // Simulated login credentials
-        if (email === "admin@example.com" && password === "password") {
+        if (email === "admin@example.com" && password === "admin") {
             localStorage.setItem('isAuthenticated', 'true');
             navigate('/chat');
         } else {
