@@ -19,7 +19,7 @@ const Login = () => {
         // Simulated login credentials
         if (email === "admin@example.com" && password === "admin") {
             localStorage.setItem('isAuthenticated', 'true');
-            navigate('/chat');
+            navigate('/chat/welcome');
         } else {
             alert('Invalid login credentials');
         }
