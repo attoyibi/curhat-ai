@@ -1,21 +1,8 @@
-import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom"; // Import Link and useNavigate from react-router-dom
 
 const Navbar = () => {
-  const [darkMode, setDarkMode] = useState(false);
   const navigate = useNavigate(); // Initialize useNavigate for navigation
 
-  useEffect(() => {
-    if (darkMode) {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-    }
-  }, [darkMode]);
-
-  const toggleDarkMode = () => {
-    setDarkMode(!darkMode);
-  };
 
   // Function to handle Login button click
   const handleLoginClick = () => {
@@ -38,9 +25,9 @@ const Navbar = () => {
           <Link to="/about" className="text-normalPrimary dark:text-darkPrimary hover:underline">
             About
           </Link>
-          <Link to="/contact" className="text-normalPrimary dark:text-darkPrimary hover:underline">
+          {/* <Link to="/contact" className="text-normalPrimary dark:text-darkPrimary hover:underline">
             Contact
-          </Link>
+          </Link> */}
         </div>
 
         {/* Right Side: Login Button and Dark Mode Toggle */}
@@ -52,13 +39,7 @@ const Navbar = () => {
             Login
           </button>
 
-          {/* Dark Mode Toggle */}
-          <button
-            onClick={toggleDarkMode}
-            className="bg-normalPrimary dark:bg-darkPrimary text-white dark:text-black px-4 py-2 rounded-lg focus:outline-none"
-          >
-            {darkMode ? "Light Mode" : "Dark Mode"}
-          </button>
+
         </div>
       </div>
     </nav>

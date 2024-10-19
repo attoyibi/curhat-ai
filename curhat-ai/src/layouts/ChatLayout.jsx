@@ -1,12 +1,14 @@
-// import React from 'react'
 
-import ChatPage from "./ChatPage";
+import { Outlet } from 'react-router-dom';
+// import ChatPage from "..pages/ChatPage";
 import useChat from '../hooks/useChat'; // Import the useChat hook
 import ChatUser from '../components/Chat'
 import AIChatBubble from '../components/AIChatBubble'
 import WelcomeChat from "../components/WelcomeChat";
-export default function ChatPageSidebar() {
+
+const ChatLayout = ({ children }) => {
     const { messages, inputMessage, isLoading, setInputMessage, handleSendMessage } = useChat(); // Use the hook
+
     return (
         <div>
             <div id="hs-application-sidebar" className="hs-overlay [--auto-close:lg] hs-overlay-open:translate-x-0 -translate-x-full duration-300 transform hidden fixed top-0 start-0 bottom-0 z-[60] w-64 bg-white border-e border-gray-200 overflow-y-auto lg:block lg:translate-x-0 lg:end-auto lg:bottom-0 [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-thumb]:bg-gray-300 dark:[&::-webkit-scrollbar-track]:bg-neutral-700 dark:[&::-webkit-scrollbar-thumb]:bg-neutral-500 dark:bg-neutral-900 dark:border-neutral-700" role="dialog" tabIndex="-1" aria-label="Sidebar">
@@ -95,7 +97,7 @@ export default function ChatPageSidebar() {
 
             <div className="relative h-screen w-full lg:ps-64">
                 {/* <ChatPage /> */}
-                <WelcomeChat />
+                <Outlet />
                 {/* Chat Area */}
                 {/* <div className="flex-grow p-4 overflow-y-auto max-w-[1440px] align-middle mx-auto w-full">
                     <div className="space-y-4">
@@ -171,5 +173,7 @@ export default function ChatPageSidebar() {
                 </div>
             </div>
         </div>
-    )
-}
+    );
+};
+
+export default ChatLayout;

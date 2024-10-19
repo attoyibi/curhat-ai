@@ -8,8 +8,10 @@ import ChatPage from '../pages/ChatPage';
 import MainLayout from '../layouts/MainLayout';
 import AuthLayout from '../layouts/AuthLayout';
 import ProtectedRoute from '../components/ProtectedRoute';
-
-
+import ChatPageSidebar from '../pages/ChatPageSidebar';
+import WelcomeChat from '../components/WelcomeChat';
+import ChatLayout from '../layouts/ChatLayout';
+import ChatNew from '../components/ChatNew';
 const AppRoutes = () => {
     return (
         <Router>
@@ -29,7 +31,12 @@ const AppRoutes = () => {
                 {/* Protected Routes */}
                 <Route element={<ProtectedRoute />}>
                     <Route path="/dashboard" element={<Dashboard />} />
-                    <Route path="/chat" element={<ChatPage />} />
+                    <Route path="/chat-v1" element={<ChatPage />} />
+                    {/* <Route path="/chat-sidebar" element={<ChatPageSidebar />} /> */}
+                    <Route path="/chat" element={<ChatLayout />} >
+                        <Route path="welcome" element={<WelcomeChat />} />
+                        <Route path="new" element={<ChatNew />} />
+                    </Route >
                 </Route>
 
                 {/* Redirect any unknown route to the landing page */}

@@ -25,7 +25,7 @@ export default function LandingPage() {
     return (
         <div>
             <HeroSection />
-            <BlogCard />
+            {/* <BlogCard /> */}
         </div>
     )
 }
