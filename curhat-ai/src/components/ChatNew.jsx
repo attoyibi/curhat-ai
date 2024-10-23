@@ -51,7 +51,7 @@ export default function ChatNew() {
   //   setTextareaHeight(`${e.target.scrollHeight}px`); // Set height to scrollHeight
   // };
   const handleInputChange = (e) => {
-    setInputMessageText(e.target.value); // Update konten berdasarkan input user
+    setInputMessage(e.target.value); // Update konten berdasarkan input user
   };
   const handleKeyDown = (e) => {
     if (e.key === "Enter" && !e.shiftKey) {
@@ -104,7 +104,7 @@ export default function ChatNew() {
         </div>
       </div>
       {/* chat area */}
-      <div className="fixed bottom-4 w-full z-10 max-w-3xl">
+      <div className="fixed bottom-4 w-full z-10 max-w-3xl md: p-5">
         <div className="relative flex">
           {/* <textarea
             className="text-black pb-12 block w-full bg-gray-100 border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-neutral-800 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
@@ -119,9 +119,11 @@ export default function ChatNew() {
             ref={textareaRef} // Referensi untuk textarea
             value={inputMessage}
             onChange={handleInputChange}
-            // rows={2} // Jumlah minimal baris textarea
+          // rows={2} // Jumlah minimal baris textarea
           ></textarea>
-          <div className="absolute size-8 right-5 bottom-6">
+          <div
+            onClick={() => handleSendMessage()}
+            className="absolute size-8 right-5 bottom-6">
             <button
               type="button"
               className="inline-flex shrink-0 justify-center items-center size-12 rounded-lg text-white bg-blue-600 hover:bg-blue-500 focus:z-10 focus:outline-none focus:bg-blue-500"
