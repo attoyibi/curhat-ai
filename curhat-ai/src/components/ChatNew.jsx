@@ -60,10 +60,19 @@ export default function ChatNew() {
     }
   };
   // Fungsi untuk memperbarui tinggi textarea
+  // const updateTextareaHeight = () => {
+  //   const textarea = textareaRef.current;
+  //   textarea.style.height = "auto"; // Reset tinggi agar mengecil jika diperlukan
+  //   textarea.style.height = `${textarea.scrollHeight}px`; // Set tinggi berdasarkan scrollHeight
+  // };
+  // Fungsi untuk memperbarui tinggi textarea dengan batas maksimal
   const updateTextareaHeight = () => {
     const textarea = textareaRef.current;
+    const maxHeight = window.innerHeight * 0.75; // 75% dari tinggi layar
+
     textarea.style.height = "auto"; // Reset tinggi agar mengecil jika diperlukan
-    textarea.style.height = `${textarea.scrollHeight}px`; // Set tinggi berdasarkan scrollHeight
+    const newHeight = Math.min(textarea.scrollHeight, maxHeight); // Ambil nilai terkecil antara scrollHeight dan maxHeight
+    textarea.style.height = `${newHeight}px`; // Set tinggi baru
   };
   return (
     <div className="max-w-3xl mx-auto ">
