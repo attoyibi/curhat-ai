@@ -262,6 +262,7 @@ const ChatLayout = ({ children }) => {
         <div className="max-w-4xl mx-auto fixed top-0 left-0 z-10 p-3 sm:py-6">
           <div className="lg:hidden flex justify-end mb-2 sm:mb-3">
             <button
+              disabled={isLoading} // Disable textarea when loading
               type="button"
               className="p-2 inline-flex items-center gap-x-2 text-xs font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-800 dark:focus:bg-neutral-800"
               aria-haspopup="dialog"

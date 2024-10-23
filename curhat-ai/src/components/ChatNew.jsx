@@ -120,9 +120,10 @@ export default function ChatNew() {
             placeholder="Ask me anything..."
           ></textarea> */}
           <textarea
+            disabled={isLoading} // Disable textarea when loading
             style={{ height: textareaHeight }}
             className="text-black p-4 pb-5 block w-full bg-gray-100 border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-neutral-800 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
-            placeholder="Ask me anything..."
+            placeholder={isLoading ? "Loading..." : "Ask me anything..."}
             onInput={handleInputChange}
             onKeyDown={handleKeyDown}
             ref={textareaRef} // Referensi untuk textarea
