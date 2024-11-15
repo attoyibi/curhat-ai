@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import useChat from "../hooks/useChat";
 // import SendIcon from "@/assets/send.svg";
 export default function WelcomeChat() {
@@ -9,7 +9,7 @@ export default function WelcomeChat() {
     setInputMessage,
     handleSendMessage,
   } = useChat();
-
+  const [imgLoading, setImgLoading] = useState("/send.svg");
   return (
     <div className="dark:bg-neutral-900">
       <div className="h-screen flex flex-col pb-6">
@@ -62,8 +62,9 @@ export default function WelcomeChat() {
               <input
                 type="text"
                 className="text-black bg-white p-4 block w-full border border-gray rounded-full text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
-                placeholder="Ask me anything..."
+                placeholder={isLoading ? "Loading..." : "Ask me anything..."}
                 onChange={(e) => setInputMessage(e.target.value)}
+                disabled={isLoading} // Disable textarea when loading
               />
               <div className="absolute top-1/2 end-2 -translate-y-1/2">
                 {/* <button
@@ -91,8 +92,9 @@ export default function WelcomeChat() {
                   type="button"
                   className="size-10 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-full border border-transparent text-gray-500 hover:text-gray-800 focus:outline-none focus:text-gray-800 bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:text-neutral-400 dark:bg-neutral-800 dark:hover:text-white dark:focus:text-white"
                   onClick={() => handleSendMessage()}
+                  disabled={isLoading} // Disable textarea when loading
                 >
-                  <img src="/send.svg" alt="Send" className="w-4 h-4" />
+                  <img onClick={() => setImgLoading("/Loading_icon.gif")} src={imgLoading} alt="Send" className="w-4 h-4" />
                 </button>
               </div>
             </div>
