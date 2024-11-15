@@ -1,27 +1,40 @@
 // src/pages/Login.jsx
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Link } from 'react-router-dom'; // Import Link for navigation
+import { Link } from 'react-router-dom';
+import supabase from '../lib/supabaseClient'; // Import Supabase instance
 
 const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [error, setError] = useState(''); // State for error messages
     const navigate = useNavigate();
 
-    const handleLogin = (e) => {
+    const handleLogin = async (e) => {
         e.preventDefault();
+        setError(''); // Reset error state
 
         if (!email.includes('@')) {
             alert('Please enter a valid email');
             return;
         }
 
-        // Simulated login credentials
-        if (email === "admin@example.com" && password === "admin") {
-            localStorage.setItem('isAuthenticated', 'true');
-            navigate('/chat/welcome');
-        } else {
-            alert('Invalid login credentials');
+        try {
+            // Menggunakan Supabase untuk autentikasi email dan password
+            const { error } = await supabase.auth.signInWithPassword({
+                email,
+                password,
+            });
+
+            if (error) {
+                setError('Invalid login credentials');
+            } else {
+                // Simpan status autentikasi jika berhasil
+                localStorage.setItem('isAuthenticated', 'true');
+                navigate('/chat/welcome');
+            }
+        } catch (err) {
+            setError('An unexpected error occurred. Please try again.');
         }
     };
 
@@ -29,6 +42,7 @@ const Login = () => {
         <div className="flex items-center justify-center min-h-screen bg-gray-100">
             <div className="w-full max-w-md p-8 space-y-8 bg-white shadow-md rounded-md">
                 <h2 className="text-2xl font-bold text-center text-gray-800">Login</h2>
+                {error && <p className="text-center text-red-500">{error}</p>} {/* Display error message */}
                 <form onSubmit={handleLogin} className="space-y-6">
                     <div>
                         <label htmlFor="email" className="block text-sm font-medium text-gray-700">
