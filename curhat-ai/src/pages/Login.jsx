@@ -1,4 +1,4 @@
-// src/pages/Login.jsx
+// src/pages/Login.jsx -- this page depricated
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';

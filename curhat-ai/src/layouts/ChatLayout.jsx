@@ -1,4 +1,4 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation, useNavigate } from "react-router-dom";
 // import ChatPage from "..pages/ChatPage";
 import useChat from "../hooks/useChat"; // Import the useChat hook
 import ChatUser from "../components/Chat";
@@ -15,6 +15,8 @@ const ChatLayout = ({ children }) => {
   } = useChat(); // Use the hook
   const [isSidebarOpen, setSidebarOpen] = useState(false); // State to track sidebar visibility
   const sidebarRef = useRef(null); // Ref for sidebar
+  const location = useLocation();
+  const navigate = useNavigate();
   const toggleSidebar = () => {
     console.log(!isSidebarOpen);
     setSidebarOpen(!isSidebarOpen); // Toggle sidebar state
@@ -25,6 +27,7 @@ const ChatLayout = ({ children }) => {
       setSidebarOpen(false); // Close sidebar
     }
   };
+
 
   // Close sidebar on keypress
   const handleKeyPress = () => {
@@ -41,6 +44,14 @@ const ChatLayout = ({ children }) => {
       document.removeEventListener("keydown", handleKeyPress);
     };
   }, []);
+  useEffect(() => {
+    // Redirect to /chat/welcome if the current location is /chat (without any further path)
+    // neet to improve and similar to chatgpt
+    if (location.pathname !== "/chat/welcome" || location.pathname !== "/chat/new") {
+      navigate("/chat/welcome");
+    }
+  }, [location, navigate]); // Depend on location and navigate to trigger the effect
+
   return (
     <div className="">
       <div
