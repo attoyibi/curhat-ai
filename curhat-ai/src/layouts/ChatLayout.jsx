@@ -1,4 +1,4 @@
-import { Outlet, useLocation, useNavigate } from "react-router-dom";
+import { Outlet, useLocation, useNavigate, Link } from "react-router-dom";
 // import ChatPage from "..pages/ChatPage";
 import useChat from "../hooks/useChat"; // Import the useChat hook
 import ChatUser from "../components/Chat";
@@ -47,9 +47,9 @@ const ChatLayout = ({ children }) => {
   useEffect(() => {
     // Redirect to /chat/welcome if the current location is /chat (without any further path)
     // neet to improve and similar to chatgpt
-    if (location.pathname !== "/chat/welcome" || location.pathname !== "/chat/new") {
-      navigate("/chat/welcome");
-    }
+    // if (location.pathname !== "/chat/welcome" || location.pathname !== "/chat/new") {
+    //   navigate("/home");
+    // }
   }, [location, navigate]); // Depend on location and navigate to trigger the effect
 
   return (
@@ -58,7 +58,7 @@ const ChatLayout = ({ children }) => {
         ref={sidebarRef} // Attach ref to sidebar
         id="hs-application-sidebar"
         // className="hs-overlay [--auto-close:lg] hs-overlay-open:translate-x-0 -translate-x-full duration-300 transform hidden fixed top-0 start-0 bottom-0 z-[60] w-64 bg-white border-e border-gray-200 overflow-y-auto lg:block lg:translate-x-0 lg:end-auto lg:bottom-0 [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-thumb]:bg-gray-300 dark:[&::-webkit-scrollbar-track]:bg-neutral-700 dark:[&::-webkit-scrollbar-thumb]:bg-neutral-500 dark:bg-neutral-900 dark:border-neutral-700"
-        className={`hs-overlay [--auto-close:lg] duration-300 transform fixed top-0 start-0 bottom-0 z-[60] w-64 bg-white border-e border-gray-200 overflow-y-auto lg:block lg:translate-x-0 lg:end-auto lg:bottom-0 [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-thumb]:bg-gray-300 dark:[&::-webkit-scrollbar-track]:bg-neutral-700 dark:[&::-webkit-scrollbar-thumb]:bg-neutral-500 dark:bg-neutral-900 dark:border-neutral-700 
+        className={`hs-overlay [--auto-close:lg] duration-300 transform fixed top-0 start-0 bottom-0 z-[60] w-64 bg-white border-e border-gray-200 lg:block lg:translate-x-0 lg:end-auto lg:bottom-0 [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-thumb]:bg-gray-300 dark:[&::-webkit-scrollbar-track]:bg-neutral-700 dark:[&::-webkit-scrollbar-thumb]:bg-neutral-500 dark:bg-neutral-900 dark:border-neutral-700 
           ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full hidden'}`}
         role="dialog"
         tabIndex="-1"
@@ -66,7 +66,7 @@ const ChatLayout = ({ children }) => {
       >
         <nav className="size-full flex flex-col">
           <div className="flex items-center justify-between pt-4 pe-4 ps-7">
-            <a
+            {/* <a
               className="flex-none focus:outline-none focus:opacity-80"
               href="../../examples/html/ai-with-sidebar.html"
               aria-label="Preline"
@@ -104,123 +104,169 @@ const ChatLayout = ({ children }) => {
                   className="fill-blue-600 dark:fill-white"
                 />
               </svg>
-            </a>
+            </a> */}
           </div>
 
-          <div className="h-full">
-            <ul className="space-y-1.5 p-4">
-              <li>
-                <a
-                  className="flex items-center gap-x-3 py-2 px-3 text-sm text-gray-700 rounded-lg hover:bg-gray-100 focus:outline-none focus:bg-gray-100 dark:text-neutral-400 dark:hover:bg-neutral-900 dark:hover:text-neutral-300 dark:focus:bg-neutral-900 dark:focus:text-neutral-300"
-                  href="#"
-                >
-                  <svg
-                    className="shrink-0 size-4"
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
+          <div className="h-full flex flex-col justify-between">
+            <ul className="space-y-1.5 p-4 ">
+              {/* newchat */}
+              <div>
+                <li>
+                  <a
+                    className="flex items-center gap-x-3 py-2 px-3 text-sm text-gray-700 rounded-lg hover:bg-gray-100 focus:outline-none focus:bg-gray-100 dark:text-neutral-400 dark:hover:bg-neutral-900 dark:hover:text-neutral-300 dark:focus:bg-neutral-900 dark:focus:text-neutral-300"
+                    href="#"
                   >
-                    <path d="M5 12h14" />
-                    <path d="M12 5v14" />
-                  </svg>
-                  New chat
+                    <svg
+                      className="shrink-0 size-4"
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <path d="M5 12h14" />
+                      <path d="M12 5v14" />
+                    </svg>
+                    New chat
+                  </a>
+                </li>
+              </div>
+            </ul>
+            {/* list chat */}
+            <div className="m-2 flex flex-col gap-2 rounded-lg h-full overflow-y-auto">
+              {/* make list of title chat here */}
+              <Link to={"/home"}>
+                <a className="py-2 px-4 hover:bg-gray-100 block w-full">
+                  chat 1
                 </a>
-              </li>
-              <li>
-                <a
-                  className="flex items-center gap-x-3 py-2 px-3 text-sm text-gray-700 rounded-lg hover:bg-gray-100 focus:outline-none focus:bg-gray-100 dark:text-neutral-400 dark:hover:bg-neutral-900 dark:hover:text-neutral-300 dark:focus:bg-neutral-900 dark:focus:text-neutral-300"
-                  href="#"
-                >
-                  <svg
-                    className="shrink-0 size-4"
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="16"
-                    height="16"
-                    fill="currentColor"
-                    viewBox="0 0 16 16"
+              </Link>
+              <Link to={"/home"}>
+                <a className="py-2 px-4 hover:bg-gray-100 block w-full">
+                  chat 2
+                </a>
+              </Link>
+              <Link to={"/home"}>
+                <a className="py-2 px-4 hover:bg-gray-100 block w-full">
+                  chat 1
+                </a>
+              </Link>
+              <Link to={"/home"}>
+                <a className="py-2 px-4 hover:bg-gray-100 block w-full">
+                  chat 2
+                </a>
+              </Link>
+              <Link to={"/home"}>
+                <a className="py-2 px-4 hover:bg-gray-100 block w-full">
+                  chat 1
+                </a>
+              </Link>
+              <Link to={"/home"}>
+                <a className="py-2 px-4 hover:bg-gray-100 block w-full">
+                  chat 2
+                </a>
+              </Link>
+              <Link to={"/home"}>
+                <a className="py-2 px-4 hover:bg-gray-100 block w-full">
+                  chat 1
+                </a>
+              </Link>
+              <Link to={"/home"}>
+                <a className="py-2 px-4 hover:bg-gray-100 block w-full">
+                  chat 2
+                </a>
+              </Link>
+              <Link to={"/home"}>
+                <a className="py-2 px-4 hover:bg-gray-100 block w-full">
+                  chat 1
+                </a>
+              </Link>
+              <Link to={"/home"}>
+                <a className="py-2 px-4 hover:bg-gray-100 block w-full">
+                  chat 2
+                </a>
+              </Link>
+              <Link to={"/home"}>
+                <a className="py-2 px-4 hover:bg-gray-100 block w-full">
+                  chat 1
+                </a>
+              </Link>
+              <Link to={"/home"}>
+                <a className="py-2 px-4 hover:bg-gray-100 block w-full">
+                  chat 2
+                </a>
+              </Link>
+              <Link to={"/home"}>
+                <a className="py-2 px-4 hover:bg-gray-100 block w-full">
+                  chat 1
+                </a>
+              </Link>
+              <Link to={"/home"}>
+                <a className="py-2 px-4 hover:bg-gray-100 block w-full">
+                  chat 2
+                </a>
+              </Link>
+              <Link to={"/home"}>
+                <a className="py-2 px-4 hover:bg-gray-100 block w-full">
+                  chat 1
+                </a>
+              </Link>
+              <Link to={"/home"}>
+                <a className="py-2 px-4 hover:bg-gray-100 block w-full">
+                  chat 2
+                </a>
+              </Link>
+            </div>
+            {/* end of list  chat */}
+
+            {/* Upgrade Plan */}
+            <ul className="space-y-1.5 p-4 shadow-lg">
+              <div>
+                <li>
+                  <a
+                    className="flex items-center gap-x-3 py-2 px-3 text-sm text-gray-700 rounded-lg hover:bg-gray-100 focus:outline-none focus:bg-gray-100 dark:text-neutral-400 dark:hover:bg-neutral-900 dark:hover:text-neutral-300 dark:focus:bg-neutral-900 dark:focus:text-neutral-300"
+                    href="#"
                   >
-                    <path d="M13.545 2.907a13.227 13.227 0 0 0-3.257-1.011.05.05 0 0 0-.052.025c-.141.25-.297.577-.406.833a12.19 12.19 0 0 0-3.658 0 8.258 8.258 0 0 0-.412-.833.051.051 0 0 0-.052-.025c-1.125.194-2.22.534-3.257 1.011a.041.041 0 0 0-.021.018C.356 6.024-.213 9.047.066 12.032c.001.014.01.028.021.037a13.276 13.276 0 0 0 3.995 2.02.05.05 0 0 0 .056-.019c.308-.42.582-.863.818-1.329a.05.05 0 0 0-.01-.059.051.051 0 0 0-.018-.011 8.875 8.875 0 0 1-1.248-.595.05.05 0 0 1-.02-.066.051.051 0 0 1 .015-.019c.084-.063.168-.129.248-.195a.05.05 0 0 1 .051-.007c2.619 1.196 5.454 1.196 8.041 0a.052.052 0 0 1 .053.007c.08.066.164.132.248.195a.051.051 0 0 1-.004.085 8.254 8.254 0 0 1-1.249.594.05.05 0 0 0-.03.03.052.052 0 0 0 .003.041c.24.465.515.909.817 1.329a.05.05 0 0 0 .056.019 13.235 13.235 0 0 0 4.001-2.02.049.049 0 0 0 .021-.037c.334-3.451-.559-6.449-2.366-9.106a.034.034 0 0 0-.02-.019Zm-8.198 7.307c-.789 0-1.438-.724-1.438-1.612 0-.889.637-1.613 1.438-1.613.807 0 1.45.73 1.438 1.613 0 .888-.637 1.612-1.438 1.612Zm5.316 0c-.788 0-1.438-.724-1.438-1.612 0-.889.637-1.613 1.438-1.613.807 0 1.451.73 1.438 1.613 0 .888-.631 1.612-1.438 1.612Z" />
-                  </svg>
-                  Preline AI Discord
-                </a>
-              </li>
-              <li>
-                <a
-                  className="flex items-center gap-x-3 py-2 px-3 text-sm text-gray-700 rounded-lg hover:bg-gray-100 focus:outline-none focus:bg-gray-100 dark:text-neutral-400 dark:hover:bg-neutral-900 dark:hover:text-neutral-300 dark:focus:bg-neutral-900 dark:focus:text-neutral-300"
-                  href="#"
-                >
-                  <svg
-                    className="shrink-0 size-4"
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
+                    <svg
+                      className="shrink-0 size-4 text-blue-600"
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+                    </svg>
+                    <span className="bg-clip-text bg-gradient-to-tl from-blue-600 to-violet-600 text-transparent">
+                      Upgrade Plan
+                    </span>
+                  </a>
+                </li>
+                {/* user profile */}
+                <li>
+                  <a
+                    className="flex items-center gap-x-3 py-2 px-3 text-sm text-gray-700 rounded-lg hover:bg-gray-100 focus:outline-none focus:bg-gray-100 dark:text-neutral-400 dark:hover:bg-neutral-900 dark:hover:text-neutral-300 dark:focus:bg-neutral-900 dark:focus:text-neutral-300"
+                    href="#"
                   >
-                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-                    <polyline points="7 10 12 15 17 10" />
-                    <line x1="12" x2="12" y1="15" y2="3" />
-                  </svg>
-                  Save conversation
-                </a>
-              </li>
-              <li>
-                <a
-                  className="flex items-center gap-x-3 py-2 px-3 text-sm text-gray-700 rounded-lg hover:bg-gray-100 focus:outline-none focus:bg-gray-100 dark:text-neutral-400 dark:hover:bg-neutral-900 dark:hover:text-neutral-300 dark:focus:bg-neutral-900 dark:focus:text-neutral-300"
-                  href="#"
-                >
-                  <svg
-                    className="shrink-0 size-4"
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <path d="m22 2-7 20-4-9-9-4Z" />
-                    <path d="M22 2 11 13" />
-                  </svg>
-                  Updates &amp; FAQ
-                </a>
-              </li>
-              <li>
-                <a
-                  className="flex items-center gap-x-3 py-2 px-3 text-sm text-gray-700 rounded-lg hover:bg-gray-100 focus:outline-none focus:bg-gray-100 dark:text-neutral-400 dark:hover:bg-neutral-900 dark:hover:text-neutral-300 dark:focus:bg-neutral-900 dark:focus:text-neutral-300"
-                  href="#"
-                >
-                  <svg
-                    className="shrink-0 size-4 text-blue-600"
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
-                  </svg>
-                  <span className="bg-clip-text bg-gradient-to-tl from-blue-600 to-violet-600 text-transparent">
-                    Upgrade Plan
-                  </span>
-                </a>
-              </li>
+                    <div className="chat-image avatar">
+                      <div className="w-10 rounded-full">
+                        <img
+                          alt='user profile'
+                          src="./user_default.jpg"
+                        />
+                      </div>
+                    </div>
+                    User
+                  </a>
+                </li>
+              </div>
             </ul>
           </div>
 
@@ -244,7 +290,7 @@ const ChatLayout = ({ children }) => {
                         </div> */}
           </div>
         </nav>
-      </div>
+      </div >
 
       <div className="relative h-screen w-full lg:ps-64">
         {/* <ChatPage /> */}
@@ -304,7 +350,7 @@ const ChatLayout = ({ children }) => {
           </div>
         </div>
       </div>
-    </div>
+    </div >
   );
 };
 

@@ -11,9 +11,9 @@ const useChat = () => {
   useEffect(() => {
     console.log("OpenAI API Key:", import.meta.env.VITE_OPENAI_API_KEY);
     console.log("message", messages.length);
-    if (messages.length >= 2 && location.pathname != "/chat/new") {
+    if (messages.length >= 2 && location.pathname != "/chat") {
       console.log("masuk ke if use effect");
-      navigate("/chat/new", { state: { messages } });
+      navigate("/chat", { state: { messages } });
     }
   }, [messages]);
 

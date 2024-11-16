@@ -25,7 +25,7 @@ const AppRoutes = () => {
 
                 {/* Public Routes (Landing Page & About Page) */}
                 <Route element={<MainLayout />}>
-                    <Route path="/" element={<LandingPage />} />
+                    <Route path="/home" element={<LandingPage />} />
                     <Route path="/about" element={<About />} />
                 </Route>
 
@@ -34,9 +34,9 @@ const AppRoutes = () => {
                     <Route path="/dashboard" element={<Dashboard />} />
                     <Route path="/chat-v1" element={<ChatPage />} />
                     {/* <Route path="/chat-sidebar" element={<ChatPageSidebar />} /> */}
-                    <Route path="/chat" element={<ChatLayout />} >
-                        <Route path="welcome" element={<WelcomeChat />} />
-                        <Route path="new" element={<ChatNew />} />
+                    <Route path="/" element={<ChatLayout />} >
+                        <Route index element={<WelcomeChat />} />
+                        <Route path="chat" element={<ChatNew />} />
                     </Route >
                 </Route>
 
