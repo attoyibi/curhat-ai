@@ -5,7 +5,7 @@ import { Outlet } from 'react-router-dom';
 const ProtectedRoute = () => {
     const isAuthenticated = localStorage.getItem('isAuthenticated'); // Simulasi autentikasi
     console.log(isAuthenticated);
-    return isAuthenticated ? <Outlet /> : <Navigate to="/login" />;
+    return isAuthenticated ? <Outlet /> : <Navigate to="/home" />;
 };
 
 export default ProtectedRoute;

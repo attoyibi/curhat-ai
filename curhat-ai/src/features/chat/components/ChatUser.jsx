@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Chat = ({ msg }) => {
+const ChatUser = ({ msg }) => {
     return (
         <div>
             {/* chat User */}
@@ -23,4 +23,4 @@ const Chat = ({ msg }) => {
     );
 };
 
-export default Chat;
+export default ChatUser;
