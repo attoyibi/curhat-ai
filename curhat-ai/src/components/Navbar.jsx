@@ -19,7 +19,7 @@ const Navbar = () => {
 
         {/* Navigation Links */}
         <div className="flex space-x-4">
-          <Link to="/" className="text-normalPrimary dark:text-darkPrimary hover:underline">
+          <Link to="/home" className="text-normalPrimary dark:text-darkPrimary hover:underline">
             Home
           </Link>
           <Link to="/about" className="text-normalPrimary dark:text-darkPrimary hover:underline">

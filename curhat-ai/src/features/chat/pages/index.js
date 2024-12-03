@@ -1,0 +1,1 @@
+export { default as WelcomeChat } from './WelcomeChat'
