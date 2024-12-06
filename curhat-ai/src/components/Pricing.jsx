@@ -1,81 +1,285 @@
 import React from 'react'
-
+import { Link } from 'react-router-dom'
 export default function Pricing() {
+
     return (
         <div className="pt-16">
-            <div className="py-10 flex justify-center items-center block text-3xl font-bold text-gray-800 dark:text-darkPrimary sm:text-4xl md:text-5xl lg:text-6xl">
-                <p>Upgrade your plan</p>
-            </div>
-            <div className="bg-gray-100 py-5">
-                <div className="flex flex-col justify-center gap-4 p-3 md:min-h-[30rem]">
-                    <div className="border">
-                        <p>Free</p>
-                        <p>USD $0/month</p>
-                    </div>
-                    <div>box 2</div>
-                    <div>box 3</div>
-                </div>
+            <>
+                {/* Features */}
+                <div className="overflow-hidden">
+                    <div className="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
+                        {/* Title */}
+                        < div className="mx-auto max-w-2xl mb-8 lg:mb-14 text-center">
+                            <h2 className="text-3xl lg:text-4xl text-gray-800 font-bold dark:text-neutral-200">
+                                Your Virtual Friend, Always Ready to Listen
+                            </h2>
+                        </div>
+                        {/* End Title */}
+                        <div className="relative xl:w-10/12 xl:mx-auto">
+                            {/* Grid */}
+                            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
+                                <div>
+                                    {/* Personal User Plan Card */}
+                                    <div className="p-4 relative z-10 bg-white border rounded-xl md:p-10 dark:bg-neutral-900 dark:border-neutral-800 shadow-lg transition-transform transform hover:scale-105">
+                                        <h3 className="text-xl font-bold text-gray-800 dark:text-neutral-200">
+                                            Personal User
+                                        </h3>
+                                        <div className="text-sm text-gray-500 dark:text-neutral-500">
+                                            Start your journey with limited chats and explore the basics. Upgrade anytime for more benefits!
+                                        </div>
+                                        <div className="mt-5">
+                                            <span className="text-6xl font-bold text-gray-800 dark:text-neutral-200">
+                                                Rp.0
+                                            </span>
+                                            <span className="text-lg font-bold text-gray-800 dark:text-neutral-200">
+                                                .00
+                                            </span>
+                                            <span className="ms-3 text-gray-500 dark:text-neutral-500">
+                                                per month
+                                            </span>
+                                        </div>
+                                        <div className="mt-5 grid sm:grid-cols-2 gap-y-2 py-4 first:pt-0 last:pb-0 sm:gap-x-6 sm:gap-y-0">
+                                            {/* Features List */}
+                                            <ul className="space-y-2 text-sm sm:text-base">
+                                                <li className="flex gap-x-3">
+                                                    <span className="mt-0.5 size-5 flex justify-center items-center rounded-full bg-blue-50 text-blue-600 dark:bg-blue-800/30 dark:text-blue-500">
+                                                        <svg
+                                                            className="shrink-0 size-3.5"
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            width={24}
+                                                            height={24}
+                                                            viewBox="0 0 24 24"
+                                                            fill="none"
+                                                            stroke="currentColor"
+                                                            strokeWidth={2}
+                                                            strokeLinecap="round"
+                                                            strokeLinejoin="round"
+                                                        >
+                                                            <polyline points="20 6 9 17 4 12" />
+                                                        </svg>
+                                                    </span>
+                                                    <span className="text-gray-800 dark:text-neutral-200">
+                                                        Basic features only
+                                                    </span>
+                                                </li>
+                                                <li className="flex gap-x-3">
+                                                    <span className="mt-0.5 size-5 flex justify-center items-center rounded-full bg-blue-50 text-blue-600 dark:bg-blue-800/30 dark:text-blue-500">
+                                                        <svg
+                                                            className="shrink-0 size-3.5"
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            width={24}
+                                                            height={24}
+                                                            viewBox="0 0 24 24"
+                                                            fill="none"
+                                                            stroke="currentColor"
+                                                            strokeWidth={2}
+                                                            strokeLinecap="round"
+                                                            strokeLinejoin="round"
+                                                        >
+                                                            <polyline points="20 6 9 17 4 12" />
+                                                        </svg>
+                                                    </span>
+                                                    <span className="text-gray-800 dark:text-neutral-200">
+                                                        Limited chats
+                                                    </span>
+                                                </li>
+                                            </ul>
+                                            {/* End Features List */}
+                                        </div>
+                                        <div className="mt-5 grid grid-cols-2 gap-x-4 py-4 first:pt-0 last:pb-0">
+                                            <div>
+                                                <p className="text-sm text-gray-500 dark:text-neutral-500">
+                                                    No credit card required.
+                                                </p>
+                                            </div>
+                                            <div className="flex justify-end">
+                                                <Link to={"/login"}>
+                                                    <button
+                                                        type="button"
+                                                        className="py-3 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none focus:outline-none focus:bg-gray-50 dark:bg-transparent dark:border-neutral-700 dark:text-neutral-300 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800"
+                                                    >
+                                                        Start your free trial
+                                                    </button>
+                                                </Link>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {/* End Personal User Card */}
+                                </div>
+                                <div>
+                                    {/* Teams Plan Card */}
+                                    <div className="shadow-xl shadow-gray-200 p-6 relative z-10 bg-white border rounded-xl md:p-10 dark:bg-neutral-900 dark:border-neutral-800 dark:shadow-gray-900/20 transition-transform transform hover:scale-105">
+                                        <h3 className="text-2xl font-bold text-gray-800 dark:text-neutral-200">
+                                            Individual Plan - Unlimited Access
+                                        </h3>
+                                        <div className="text-sm text-gray-500 dark:text-neutral-500">
+                                            Unlock unlimited chats and enjoy premium features that keep evolving with every update!
+                                        </div>
+                                        <span className="absolute top-0 right-0 rounded-se-xl text-xs font-medium bg-gray-800 text-white py-1.5 px-3 dark:bg-white dark:text-neutral-800">
+                                            Most Popular
+                                        </span>
+                                        <div className="mt-5 flex items-center">
+                                            <span className="text-6xl font-bold text-gray-800 dark:text-neutral-200">
+                                                Rp.99,000
+                                            </span>
+                                            <span className="text-lg font-bold text-gray-800 dark:text-neutral-200">
+                                                .00
+                                            </span>
+                                            <span className="ml-3 text-sm text-gray-500 dark:text-neutral-500">
+                                                per month
+                                            </span>
+                                        </div>
+                                        <div className="mt-5 grid sm:grid-cols-1 gap-y-4 py-4 first:pt-0 last:pb-0 sm:gap-x-6 sm:gap-y-0">
+                                            {/* Features List */}
+                                            <ul className="space-y-3 text-sm sm:text-base">
+                                                <li className="flex gap-x-3 items-center">
+                                                    <span className="size-5 flex justify-center items-center rounded-full bg-blue-50 text-blue-600 dark:bg-blue-800/30 dark:text-blue-500">
+                                                        <svg
+                                                            className="shrink-0 size-3.5"
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            width={24}
+                                                            height={24}
+                                                            viewBox="0 0 24 24"
+                                                            fill="none"
+                                                            stroke="currentColor"
+                                                            strokeWidth={2}
+                                                            strokeLinecap="round"
+                                                            strokeLinejoin="round"
+                                                        >
+                                                            <polyline points="20 6 9 17 4 12" />
+                                                        </svg>
+                                                    </span>
+                                                    <span className="text-gray-800 dark:text-neutral-200">
+                                                        Unlimited Chats Anytime, Anywhere
+                                                    </span>
+                                                </li>
+                                                <li className="flex gap-x-3 items-center">
+                                                    <span className="size-5 flex justify-center items-center rounded-full bg-blue-50 text-blue-600 dark:bg-blue-800/30 dark:text-blue-500">
+                                                        <svg
+                                                            className="shrink-0 size-3.5"
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            width={24}
+                                                            height={24}
+                                                            viewBox="0 0 24 24"
+                                                            fill="none"
+                                                            stroke="currentColor"
+                                                            strokeWidth={2}
+                                                            strokeLinecap="round"
+                                                            strokeLinejoin="round"
+                                                        >
+                                                            <polyline points="20 6 9 17 4 12" />
+                                                        </svg>
+                                                    </span>
+                                                    <span className="text-gray-800 dark:text-neutral-200">
+                                                        Access Exclusive Features with Every Update
+                                                    </span>
+                                                </li>
+                                                <li className="flex gap-x-3 items-center">
+                                                    <span className="size-5 flex justify-center items-center rounded-full bg-blue-50 text-blue-600 dark:bg-blue-800/30 dark:text-blue-500">
+                                                        <svg
+                                                            className="shrink-0 size-3.5"
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            width={24}
+                                                            height={24}
+                                                            viewBox="0 0 24 24"
+                                                            fill="none"
+                                                            stroke="currentColor"
+                                                            strokeWidth={2}
+                                                            strokeLinecap="round"
+                                                            strokeLinejoin="round"
+                                                        >
+                                                            <polyline points="20 6 9 17 4 12" />
+                                                        </svg>
+                                                    </span>
+                                                    <span className="text-gray-800 dark:text-neutral-200">
+                                                        Stay Ahead with Regular Feature Updates
+                                                    </span>
+                                                </li>
+                                            </ul>
+                                            {/* End Features List */}
+                                        </div>
+                                        <div className="mt-5 flex justify-between items-center">
+                                            <div>
+                                                <p className="text-sm text-gray-500 dark:text-neutral-500">
+                                                    Cancel anytime. No hidden fees.
+                                                </p>
+                                            </div>
+                                            <div>
+                                                <button
+                                                    type="button"
+                                                    className="py-3 px-6 inline-flex items-center gap-x-3 text-sm font-medium rounded-lg border border-gray-200 bg-blue-600 text-white shadow-sm hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none focus:outline-none focus:bg-blue-700 dark:bg-transparent dark:border-neutral-700 dark:text-neutral-300 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800"
+                                                >
+                                                    Get Started
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {/* End Teams Plan Card */}
 
-            </div>
-        </div>
+                                </div>
+                            </div>
+
+                            {/* End Grid */}
+                            {/* SVG Element */}
+                            <div className="hidden md:block absolute top-0 end-0 translate-y-16 translate-x-16">
+                                <svg
+                                    className="w-16 h-auto text-orange-500"
+                                    width={121}
+                                    height={135}
+                                    viewBox="0 0 121 135"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                >
+                                    <path
+                                        d="M5 16.4754C11.7688 27.4499 21.2452 57.3224 5 89.0164"
+                                        stroke="currentColor"
+                                        strokeWidth={10}
+                                        strokeLinecap="round"
+                                    />
+                                    <path
+                                        d="M33.6761 112.104C44.6984 98.1239 74.2618 57.6776 83.4821 5"
+                                        stroke="currentColor"
+                                        strokeWidth={10}
+                                        strokeLinecap="round"
+                                    />
+                                    <path
+                                        d="M50.5525 130C68.2064 127.495 110.731 117.541 116 78.0874"
+                                        stroke="currentColor"
+                                        strokeWidth={10}
+                                        strokeLinecap="round"
+                                    />
+                                </svg>
+                            </div>
+                            {/* End SVG Element */}
+                            {/* SVG Element */}
+                            <div className="hidden md:block absolute bottom-0 start-0 translate-y-16 -translate-x-16">
+                                <svg
+                                    className="w-56 h-auto text-cyan-500"
+                                    width={347}
+                                    height={188}
+                                    viewBox="0 0 347 188"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                >
+                                    <path
+                                        d="M4 82.4591C54.7956 92.8751 30.9771 162.782 68.2065 181.385C112.642 203.59 127.943 78.57 122.161 25.5053C120.504 2.2376 93.4028 -8.11128 89.7468 25.5053C85.8633 61.2125 130.186 199.678 180.982 146.248L214.898 107.02C224.322 95.4118 242.9 79.2851 258.6 107.02C274.299 134.754 299.315 125.589 309.861 117.539L343 93.4426"
+                                        stroke="currentColor"
+                                        strokeWidth={7}
+                                        strokeLinecap="round"
+                                    />
+                                </svg>
+                            </div>
+                            {/* End SVG Element */}
+                        </div>
+                        <div className="mt-7 text-center">
+                            <p className="text-xs text-gray-400">Prices in USD. Taxes may apply.</p>
+                        </div>
+                    </div>
+                </div>
+                {/* End Features */}
+
+            </>
+
+        </div >
     )
 }
-
-
-// contoh kode 
-{/* <div className="flex flex-col justify-center gap-4 px-3 py-3 md:min-h-[30rem] md:flex-row md:gap-0 md:py-0">
-    <div className="text-sm relative flex-1 flex gap-5 flex-col border-token-border-light border-t border-l border-r border-b rounded-xl md:min-h-[30rem] md:rounded-none md:border-r-0 md:last:border-r md:first:rounded-tl-xl md:first:rounded-bl-xl md:last:rounded-tr-xl md:last:rounded-br-xl md:max-w-96 justify-center px-6 pt-6 pb-10 md:pb-6" data-testid="free-pricing-modal-column">
-        <div className="relative flex flex-col bg-token-main-surface-primary">
-            <div className="flex flex-col gap-1">
-                <p className="flex items-center gap-2 text-xl font-semibold">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="icon-md">
-                        <path d="M12.001 1.75C12.4972 1.75051 12.9141 2.12323 12.97 2.61632C13.2763 5.32075 14.096 7.2769 15.4108 8.61588C16.7197 9.9489 18.6326 10.7853 21.3602 11.0276C21.8643 11.0724 22.2506 11.495 22.25 12.0011C22.2494 12.5072 21.8622 12.9289 21.358 12.9726C18.6758 13.2047 16.7215 14.0404 15.381 15.381C14.0404 16.7215 13.2047 18.6758 12.9726 21.358C12.9289 21.8622 12.5072 22.2494 12.0011 22.25C11.495 22.2506 11.0724 21.8643 11.0276 21.3602C10.7853 18.6326 9.9489 16.7197 8.61588 15.4108C7.2769 14.096 5.32075 13.2763 2.61632 12.97C2.12323 12.9141 1.75051 12.4972 1.75 12.001C1.74949 11.5048 2.12137 11.0871 2.61434 11.0302C5.36466 10.713 7.27893 9.89303 8.58598 8.58598C9.89303 7.27893 10.713 5.36466 11.0302 2.61434C11.0871 2.12137 11.5048 1.74949 12.001 1.75Z" fill="currentColor"></path>
-                    </svg>
-                    Free
-                </p>
-                <div className="flex items-baseline gap-1.5">
-                    <p className="text-base text-token-text-tertiary" data-testid="free-pricing-column-cost">USD $0/month</p>
-                </div>
-            </div>
-        </div>
-        <div className="relative flex flex-col bg-token-main-surface-primary">
-            <button className="opacity-50 hover:bg-inherit cursor-not-allowed btn relative btn-secondary btn-large" disabled="">
-                <div className="flex items-center justify-center">Your current plan</div>
-            </button>
-        </div>
-        <div className="flex flex-col flex-grow gap-2">
-            <div className="relative bg-token-main-surface-primary">
-                <div className="text-l flex justify-start gap-2">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="mt-0.5 h-4 w-4 shrink-0">
-                        <path fillRule="evenodd" clipRule="evenodd" d="M18.0633 5.67387C18.5196 5.98499 18.6374 6.60712 18.3262 7.06343L10.8262 18.0634C10.6585 18.3095 10.3898 18.4679 10.0934 18.4957C9.79688 18.5235 9.50345 18.4178 9.29289 18.2072L4.79289 13.7072C4.40237 13.3167 4.40237 12.6835 4.79289 12.293C5.18342 11.9025 5.81658 11.9025 6.20711 12.293L9.85368 15.9396L16.6738 5.93676C16.9849 5.48045 17.607 5.36275 18.0633 5.67387Z" fill="currentColor"></path>
-                    </svg>
-                    <span>Assistance with writing, problem solving and more</span>
-                </div>
-            </div>
-            <div className="relative bg-token-main-surface-primary">
-                <div className="text-l flex justify-start gap-2">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="mt-0.5 h-4 w-4 shrink-0">
-                        <path fillRule="evenodd" clipRule="evenodd" d="M18.0633 5.67387C18.5196 5.98499 18.6374 6.60712 18.3262 7.06343L10.8262 18.0634C10.6585 18.3095 10.3898 18.4679 10.0934 18.4957C9.79688 18.5235 9.50345 18.4178 9.29289 18.2072L4.79289 13.7072C4.40237 13.3167 4.40237 12.6835 4.79289 12.293C5.18342 11.9025 5.81658 11.9025 6.20711 12.293L9.85368 15.9396L16.6738 5.93676C16.9849 5.48045 17.607 5.36275 18.0633 5.67387Z" fill="currentColor"></path>
-                    </svg>
-                    <span>Access to GPT-4o mini</span>
-                </div>
-            </div>
-            <div className="relative bg-token-main-surface-primary">
-                <div className="text-l flex justify-start gap-2">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="mt-0.5 h-4 w-4 shrink-0">
-                        <path fillRule="evenodd" clipRule="evenodd" d="M18.0633 5.67387C18.5196 5.98499 18.6374 6.60712 18.3262 7.06343L10.8262 18.0634C10.6585 18.3095 10.3898 18.4679 10.0934 18.4957C9.79688 18.5235 9.50345 18.4178 9.29289 18.2072L4.79289 13.7072C4.40237 13.3167 4.40237 12.6835 4.79289 12.293C5.18342 11.9025 5.81658 11.9025 6.20711 12.293L9.85368 15.9396L16.6738 5.93676C16.9849 5.48045 17.607 5.36275 18.0633 5.67387Z" fill="currentColor"></path>
-                    </svg>
-                    <span>Limited access to GPT‑4o</span>
-                </div>
-            </div>
-            <div className="relative bg-token-main-surface-primary">
-                <div className="text-l flex justify-start gap-2">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="mt-0.5 h-4 w-4 shrink-0">
-                        <path fillRule="evenodd" clipRule="evenodd" d="M18.0633 5.67387C18.5196 5.98499 18.6374 6.60712 18.3262 7.06343L10.8262 18.0634C10.6585 18.3095 10.3898 18.4679 10.0934 18.4957C9.79688 18.5235 9.50345 18.4178 9.29289 18.2072L4.79289 13.7072C4.40237 13.3167 4.40237 12.6835 4.79289 12.293C5.18342 11.9025 5.81658 11.9025 6.20711 12.293L9.85368 15.9396L16.6738 5.93676C16.9849 5.48045 17.607 5.36275 18.0633 5.67387Z" fill="currentColor"></path>
-                    </svg>
-                    <span>Access to GPT-4o+ token</span>
-                </div>
-            </div>
-        </div>
-    </div>
-</div> */}

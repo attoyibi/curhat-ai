@@ -31,7 +31,7 @@ const Login = () => {
             } else {
                 // Simpan status autentikasi jika berhasil
                 localStorage.setItem('isAuthenticated', 'true');
-                navigate('/chat/welcome');
+                navigate('/newChat');
             }
         } catch (err) {
             setError('An unexpected error occurred. Please try again.');

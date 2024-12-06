@@ -9,10 +9,10 @@ const useChat = () => {
     const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
-        console.log("OpenAI API Key:", import.meta.env.VITE_OPENAI_API_KEY);
-        console.log("message", messages.length);
+        // console.log("OpenAI API Key:", import.meta.env.VITE_OPENAI_API_KEY);
+        // console.log("message", messages.length);
         if (messages.length >= 2 && location.pathname != "/chat") {
-            console.log("masuk ke if use effect");
+            // console.log("masuk ke if use effect");
             navigate("/chat");
         }
     }, [messages]);

@@ -12,7 +12,7 @@ const LoginPage = () => {
     const handleLogin = async (email, password) => {
         const success = await login(email, password);
         if (success) {
-            navigate('/chat/welcome');
+            navigate('/newChat');
         } else {
             setError('Invalid login credentials');
         }

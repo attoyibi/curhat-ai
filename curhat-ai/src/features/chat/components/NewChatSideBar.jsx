@@ -92,7 +92,7 @@ export function NewChatSideBar() {
 
       <div className="flex-grow p-4 overflow-y-auto max-w-[1440px] align-middle mx-auto w-full pb-[100px]">
         <div className="space-y-4">
-          {"cel " + sessions}
+          {/* {"cel " + sessions} */}
           {/* <ChatUser msg={location.state.messages[0].text} />
                     <AIChatBubble
                         avatar="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"

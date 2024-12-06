@@ -24,8 +24,7 @@ export default function ChatNew() {
     if (chatEndRef.current) {
       chatEndRef.current.scrollIntoView({ behavior: "smooth" });
     }
-    console.log(location.state.messages[0].text);
-    console.log(location.state);
+
     updateTextareaHeight();
   }, [messages, inputMessage]);
   console.log("location di chatpge sidebar = ", location);

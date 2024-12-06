@@ -3,20 +3,19 @@ import { Outlet } from "react-router-dom";
 // import useSidebar from "../hooks/useSidebar"; // Import the custom hook
 import { Sidebar, useChat as useChatFromFeature, useSidebar, useSidebarWithRedux } from "../features/chat"; // Import the Sidebar component
 const ChatLayout = () => {
-  const {
-    messages,
-    inputMessage,
-    isLoading,
-    setInputMessage,
-    handleSendMessage,
-  } = useChatFromFeature();
+  // const {
+  //   messages,
+  //   inputMessage,
+  //   isLoading,
+  //   setInputMessage,
+  //   handleSendMessage,
+  // } = useChatFromFeature();
 
-  const { isSidebarOpen, toggleSidebar, sidebarRef, userSessions } = useSidebarWithRedux();
-  console.log("userSessions di layout= ", userSessions);
+  const { isSidebarOpen, showUserSettings, toggleSidebar, sidebarRef, userSessions, isLoading, logoutUser, toggleUserSettings, isShowUserSettings } = useSidebarWithRedux();
 
   return (
     <div className="">
-      <Sidebar isOpen={isSidebarOpen} sidebarRef={sidebarRef} userSessions={userSessions} />
+      <Sidebar showUserSettings={showUserSettings} isOpen={isSidebarOpen} sidebarRef={sidebarRef} userSessions={userSessions} logoutUser={logoutUser} toggleUserSettings={toggleUserSettings} isShowUserSettings={isShowUserSettings} />
 
       <div className="relative h-screen w-full lg:ps-64">
         <Outlet />
