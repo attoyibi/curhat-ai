@@ -21,7 +21,7 @@ const useAuth = () => {
                 return false;
             }
             localStorage.setItem('isAuthenticated', 'true');
-            navigate('/chat/welcome');
+            navigate('/newChat');
             return true;
         } catch (err) {
             setError('An unexpected error occurred.');

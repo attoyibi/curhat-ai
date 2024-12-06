@@ -41,6 +41,7 @@ const sidebarSlice = createSlice({
             },
         ],
         isLoading: false,
+        isShowUserSettings: false,
         error: null,
     },
     reducers: {
@@ -52,7 +53,19 @@ const sidebarSlice = createSlice({
         },
         addUserSessions: (state, payload) => {
             // state.userSessions = payload.data;
-        }
+        },
+        clearUserSessions: (state) => {
+            state.userSessions = []; // Clear the session data
+        },
+        clearUserSettingComponent: (state) => {
+            state.isShowUserSettings = false; // Clear the session data
+        },
+        toggleUserSettingsReducer: (state) => {
+            state.isShowUserSettings = !state.isShowUserSettings; // Clear the session data
+        },
+        removeUserSessionFromState: (state, action) => {
+            state.userSessions = state.userSessions.filter(session => session.session_id !== action.payload);
+        },
     },
     extraReducers: (builder) => {
         builder
@@ -71,6 +84,6 @@ const sidebarSlice = createSlice({
     },
 });
 
-export const { toggleSidebar, closeSidebar, addUserSessions } = sidebarSlice.actions;
+export const { toggleSidebar, closeSidebar, addUserSessions, clearUserSessions, clearUserSettingComponent, toggleUserSettingsReducer, removeUserSessionFromState } = sidebarSlice.actions;
 
 export default sidebarSlice.reducer;

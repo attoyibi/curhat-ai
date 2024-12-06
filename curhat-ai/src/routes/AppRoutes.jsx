@@ -16,7 +16,7 @@ import WelcomeChat from '../components/WelcomeChat';
 import ChatLayout from '../layouts/ChatLayout';
 import ChatNew from '../components/ChatNew';
 import Pricing from '../components/Pricing';
-
+import NotFound from '../components/NotFound'
 const AppRoutes = () => {
     return (
         <Router>
@@ -37,19 +37,19 @@ const AppRoutes = () => {
                 {/* Protected Routes */}
                 <Route element={<ProtectedRoute />}>
                     <Route path="/dashboard" element={<Dashboard />} />
-                    <Route path="/chat-v1" element={<ChatPage />} />
+                    {/* <Route path="/chat-v1" element={<ChatPage />} /> */}
                     {/* <Route path="/chat-sidebar" element={<ChatPageSidebar />} /> */}
                     <Route path="/" element={<ChatLayout />} >
                         {/* <Route index element={<WelcomeChat />} /> */}
                         <Route index element={<WelcomeChatFeature />} />
                         <Route path="newChat" element={<WelcomeChatFeature />} />
-                        <Route path="chat" element={<NewChatSideBar />} />
+                        {/* <Route path="chat" element={<NewChatSideBar />} /> */}
                         <Route path="chat/:id" element={<NewChatSideBar />} />
                     </Route >
                 </Route>
 
                 {/* Redirect any unknown route to the landing page */}
-                <Route path="*" element={<Navigate to="/home" />} />
+                <Route path="*" element={<NotFound />} />
             </Routes>
         </Router>
     );

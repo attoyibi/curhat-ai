@@ -8,9 +8,9 @@ import {
     setIsLoading,
     addSessions,
     setMessages,
-    resetSessions
+    resetSessions,
 } from "../redux/chatSlice";
-import { fetchUserSessions } from "../redux/sidebarSlice"
+import { fetchUserSessions, removeUserSessionFromState } from "../redux/sidebarSlice"
 import supabase from "../../../lib/supabaseClient"
 
 const useChatWithRedux = () => {
@@ -225,6 +225,24 @@ const useChatWithRedux = () => {
         dispatch(addSessions(id));
     }
 
+    const removeSession = async (sessionId) => {
+        try {
+            const { error } = await supabase.from('sessions').delete().eq('session_id', sessionId);
+            if (error) {
+                throw error;
+            }
+            console.log(`Session ${sessionId} deleted successfully.`);
+            if (sessions == sessionId) {
+                navigate("newChat");
+            }
+            dispatch(removeUserSessionFromState(sessionId)); // Hapus dari Redux state
+            // dispatch(resetSessions()); // Reset sessions jika diperlukan
+        } catch (error) {
+            console.error("Error deleting session:", error.message);
+        }
+    };
+
+
     return {
         messages,
         inputMessage,
@@ -234,7 +252,8 @@ const useChatWithRedux = () => {
         handleSendMessage,
         handleChatMessage,
         handleSessionMessage,
-        handleFetchMessages
+        handleFetchMessages,
+        removeSession
     };
 };
 
