@@ -2,7 +2,7 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import LandingPage from '../pages/LandingPage';
 import Login from '../pages/Login';
-import { LoginPage as LoginPageWithFeature } from '../features/auth';
+import { LoginPage as LoginPageWithFeature, LoginForm, RegisterForm } from '../features/auth';
 import { WelcomeChat as WelcomeChatFeature } from '../features/chat';
 import { NewChatSideBar } from '../features/chat';
 import About from '../pages/About';
@@ -24,7 +24,8 @@ const AppRoutes = () => {
                 {/* Public Routes with AuthLayout */}
                 <Route element={<AuthLayout />}>
                     {/* <Route path="/login" element={<Login />} /> */}
-                    <Route path="/login" element={<LoginPageWithFeature />} />
+                    <Route path="/login" element={<LoginForm />} />
+                    <Route path="/register" element={<RegisterForm />} />
                 </Route>
 
                 {/* Public Routes (Landing Page & About Page) */}
