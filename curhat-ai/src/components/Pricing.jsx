@@ -110,10 +110,10 @@ export default function Pricing() {
                                     {/* Teams Plan Card */}
                                     <div className="shadow-xl shadow-gray-200 p-6 relative z-10 bg-white border rounded-xl md:p-10 dark:bg-neutral-900 dark:border-neutral-800 dark:shadow-gray-900/20 transition-transform transform hover:scale-105">
                                         <h3 className="text-2xl font-bold text-gray-800 dark:text-neutral-200">
-                                            Individual Plan - Unlimited Access
+                                            Coming Soon: Unlimited Premium Access!
                                         </h3>
                                         <div className="text-sm text-gray-500 dark:text-neutral-500">
-                                            Unlock unlimited chats and enjoy premium features that keep evolving with every update!
+                                            Fill form to be part of our premium community at a special launch price!
                                         </div>
                                         <span className="absolute top-0 right-0 rounded-se-xl text-xs font-medium bg-gray-800 text-white py-1.5 px-3 dark:bg-white dark:text-neutral-800">
                                             Most Popular
@@ -201,16 +201,18 @@ export default function Pricing() {
                                         <div className="mt-5 flex justify-between items-center">
                                             <div>
                                                 <p className="text-sm text-gray-500 dark:text-neutral-500">
-                                                    Cancel anytime. No hidden fees.
+                                                    Get 30% off for early subscribers!
                                                 </p>
                                             </div>
                                             <div>
-                                                <button
-                                                    type="button"
-                                                    className="py-3 px-6 inline-flex items-center gap-x-3 text-sm font-medium rounded-lg border border-gray-200 bg-blue-600 text-white shadow-sm hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none focus:outline-none focus:bg-blue-700 dark:bg-transparent dark:border-neutral-700 dark:text-neutral-300 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800"
-                                                >
-                                                    Get Started
-                                                </button>
+                                                <Link to={"/fill-form"}>
+                                                    <button
+                                                        type="button"
+                                                        className="py-3 px-6 inline-flex items-center gap-x-3 text-sm font-medium rounded-lg border border-gray-200 bg-blue-600 text-white shadow-sm hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none focus:outline-none focus:bg-blue-700 dark:bg-transparent dark:border-neutral-700 dark:text-neutral-300 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800"
+                                                    >
+                                                        Fill Form
+                                                    </button>
+                                                </Link>
                                             </div>
                                         </div>
                                     </div>
