@@ -272,7 +272,7 @@ export default function Pricing() {
                             {/* End SVG Element */}
                         </div>
                         <div className="mt-7 text-center">
-                            <p className="text-xs text-gray-400">Prices in USD. Taxes may apply.</p>
+                            <p className="text-xs text-gray-400">Prices in Rupiah. Taxes may apply.</p>
                         </div>
                     </div>
                 </div>
