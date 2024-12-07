@@ -17,6 +17,7 @@ import ChatLayout from '../layouts/ChatLayout';
 import ChatNew from '../components/ChatNew';
 import Pricing from '../components/Pricing';
 import NotFound from '../components/NotFound'
+import GoogleFormEmbed from '../components/GoogleFormEmbed';
 const AppRoutes = () => {
     return (
         <Router>
@@ -33,6 +34,7 @@ const AppRoutes = () => {
                     <Route path="/home" element={<LandingPage />} />
                     <Route path="/about" element={<About />} />
                     <Route path="/pricing" element={<Pricing />} />
+                    <Route path="/fill-form" element={<GoogleFormEmbed />} />
                 </Route>
 
                 {/* Protected Routes */}
