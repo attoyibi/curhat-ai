@@ -92,14 +92,35 @@ const useChatWithRedux = () => {
 
             try {
                 console.log("semua data Chat redux", allReduxChatData);
-                // if (sessions === null || sessions === undefined) {
                 // Mendapatkan judul sesi secara dinamis
                 const dynamicTopic = await getSessionTopic(inputMessage);
+
+                // Dapatkan user_id dari Supabase auth
+                const { data: { user }, error } = await supabase.auth.getUser();
+                if (error || !user) {
+                    throw new Error("User not authenticated");
+                }
+
                 // create new sessions
-                const sessionResponse = await supabase.from('sessions').insert({ topic: dynamicTopic }).select("session_id").single();
-                const sessions = await sessionResponse.data.session_id;
+                let sessionResponse = await supabase.from('sessions').insert({
+                    topic: dynamicTopic,
+                    user_id: user.id // Tambahkan user_id
+                }).select().single();
+
+                if (sessionResponse.error && sessionResponse.error.code === '409') {
+                    // Handle conflict error
+                    sessionResponse = await supabase.from('sessions').select("session_id").eq('topic', dynamicTopic).single();
+                }
+                console.log("sessionResponse = ", sessionResponse);
+
+                const sessions = sessionResponse.data ? sessionResponse.data.session_id : null;
+                console.log("sessions sebelm if = ", sessions);
+                if (!sessions) {
+                    throw new Error("Failed to create or fetch session");
+                }
+
                 dispatch(addSessions(sessions));
-                // }
+
                 // send userMessage to table messages
                 await supabase.from("messages").insert({
                     sender: "user",
