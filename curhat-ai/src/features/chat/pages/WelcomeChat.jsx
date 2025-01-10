@@ -17,7 +17,6 @@ export default function WelcomeChat() {
     useEffect(() => {
         dispatch(resetSessions());
         dispatch(resetChat());
-        console.log("==========session reset==============");
     }, []);
     return (
         <div className="dark:bg-neutral-900">

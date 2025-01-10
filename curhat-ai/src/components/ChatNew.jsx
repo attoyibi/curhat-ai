@@ -27,28 +27,6 @@ export default function ChatNew() {
 
     updateTextareaHeight();
   }, [messages, inputMessage]);
-  console.log("location di chatpge sidebar = ", location);
-
-  // const handleInputChange = (e) => {
-  //   setInputMessage(e.target.value);
-  //   let value = e.target.value;
-  //   console.log(value.length);
-  //   let countEnter = 0;
-  //   for (let index = 0; index < value.length; index++) {
-  //     console.log(value[index]);
-  //     if (value[index] == "/n") {
-  //       countEnter++;
-  //       console.log("Count Enter =", countEnter);
-  //     }
-  //   }
-  //   if (e.target.scrollHeight > 100) {
-  //     setTextareaHeight(countEnter * 20 + 10);
-  //   }
-  //   setTextareaHeight("auto"); // Set to auto to recalculate height
-  //   console.log(e);
-  //   console.log("tinggi element", e.target.scrollHeight);
-  //   setTextareaHeight(`${e.target.scrollHeight}px`); // Set height to scrollHeight
-  // };
   const handleInputChange = (e) => {
     setInputMessage(e.target.value); // Update konten berdasarkan input user
   };

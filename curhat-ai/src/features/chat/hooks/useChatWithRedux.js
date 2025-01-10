@@ -25,15 +25,6 @@ const useChatWithRedux = () => {
     const sessions = useSelector((state) => state.chat.sessions);
     const allReduxChatData = useSelector((state) => state.chat);
 
-    // useEffect(() => {
-    //     console.log("OpenAI API Key:", import.meta.env.VITE_OPENAI_API_KEY);
-    //     console.log("message", messages.length);
-    //     if (messages.length >= 2 && location.pathname !== "/chat") {
-    //         console.log("masuk ke if use effect");
-    //         navigate("/chat");
-    //     }
-    // }, [messages]);
-
     const getSessionTopic = async (inputMessage) => {
         try {
             const response = await axios.post(
@@ -68,13 +59,11 @@ const useChatWithRedux = () => {
     const handleFetchMessages = async (sessions) => {
         try {
             const response = await supabase.from('messages').select("*").eq('session_id', sessions)
-            console.log("handleFetchMessages response", response);
 
             const newResponse = response.data.map(data => ({
                 sender: data.sender,
                 text: data.message_text
             }));
-            console.log("handleFetchMessages newResponse", newResponse);
             dispatch(setMessages(newResponse));
         } catch (error) {
             console.error(error);
@@ -91,7 +80,6 @@ const useChatWithRedux = () => {
             dispatch(setIsLoading(true)); // Set loading state
 
             try {
-                console.log("semua data Chat redux", allReduxChatData);
                 // Mendapatkan judul sesi secara dinamis
                 const dynamicTopic = await getSessionTopic(inputMessage);
 
@@ -111,10 +99,8 @@ const useChatWithRedux = () => {
                     // Handle conflict error
                     sessionResponse = await supabase.from('sessions').select("session_id").eq('topic', dynamicTopic).single();
                 }
-                console.log("sessionResponse = ", sessionResponse);
 
                 const sessions = sessionResponse.data ? sessionResponse.data.session_id : null;
-                console.log("sessions sebelm if = ", sessions);
                 if (!sessions) {
                     throw new Error("Failed to create or fetch session");
                 }
@@ -252,7 +238,6 @@ const useChatWithRedux = () => {
             if (error) {
                 throw error;
             }
-            console.log(`Session ${sessionId} deleted successfully.`);
             if (sessions == sessionId) {
                 navigate("newChat");
             }

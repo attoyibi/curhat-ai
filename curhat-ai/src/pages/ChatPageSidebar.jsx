@@ -16,7 +16,6 @@ export default function ChatPageSidebar() {
     handleSendMessage,
   } = useChat(); // Use the hook
   const location = useLocation();
-  console.log("location di chatpge sidebar = ", location);
   return (
     <div>
       <div

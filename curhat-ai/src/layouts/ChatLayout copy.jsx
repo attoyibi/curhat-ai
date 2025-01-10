@@ -14,7 +14,6 @@ const ChatLayout = ({ children }) => {
   const location = useLocation();
   const navigate = useNavigate();
   const toggleSidebar = () => {
-    console.log(!isSidebarOpen);
     setSidebarOpen(!isSidebarOpen); // Toggle sidebar state
   };
   // Close sidebar on click outside
