@@ -31,10 +31,6 @@ const ChatPage = () => {
     const [inputMessage, setInputMessage] = useState("");
     const [isLoading, setIsLoading] = useState(false); // Tambahkan state untuk loading
 
-    useEffect(() => {
-        console.log('OpenAI API Key:', import.meta.env.VITE_OPENAI_API_KEY);
-    }, []);
-
     const handleSendMessage = async () => {
         if (inputMessage.trim()) {
             const userMessage = { sender: "user", text: inputMessage };
@@ -71,7 +67,6 @@ const ChatPage = () => {
                     sender: "AI",
                     text: response.data.choices[0].message.content,
                 };
-                console.log('Response:', response.data);
                 setMessages((prevMessages) => [...prevMessages, aiMessage]);
             } catch (error) {
                 console.error("Error fetching data from OpenAI:", error);

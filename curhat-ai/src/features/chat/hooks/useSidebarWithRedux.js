@@ -33,7 +33,6 @@ const useSidebar = () => {
             // dispatch(clearUserSessions());
             // Clear localStorage
             localStorage.clear();
-            console.log("User logged out successfully!");
             navigate('/home');
         } catch (err) {
             console.error("Logout error:", err.message);
@@ -68,8 +67,6 @@ const useSidebar = () => {
 
     // Fetch user sessions when the component mounts
     useEffect(() => {
-        // const dataUserSession = fetchUserSessions();
-        // console.log("dataUserSession", dataUserSession);
         dispatch(fetchUserSessions());
     }, [dispatch]);
 

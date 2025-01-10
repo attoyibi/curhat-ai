@@ -45,7 +45,6 @@ const useSidebar = () => {
 
             // Check if a user is logged in
             if (!session) {
-                console.log('No user session found.');
                 return null;
             }
 
@@ -73,7 +72,6 @@ const useSidebar = () => {
     // Fetch and log user sessions
     const fetchUserSessions = async () => {
         const sessions = await getUserSessions();
-        console.log('User sessions:', sessions);
     };
 
     // Effect for handling outside clicks and key presses

@@ -14,10 +14,10 @@ const AIChatBubble = ({ avatar, sender, time, message, status }) => {
             </div>
 
             {/* Sender and Time */}
-            <div className="chat-header">
+            {/* <div className="chat-header">
                 {sender}
                 <time className="text-xs opacity-50 ml-2">{time}</time>
-            </div>
+            </div> */}
 
             {/* Message */}
             <div className="chat-bubble">{message}</div>

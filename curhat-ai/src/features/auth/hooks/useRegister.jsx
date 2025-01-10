@@ -35,7 +35,6 @@ const useRegister = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log(formData);
         const newErrors = validateForm();
 
         if (Object.keys(newErrors).length === 0) {

@@ -6,7 +6,6 @@ export const fetchUserSessions = createAsyncThunk(
     'sidebar/fetchUserSessions',
     async (_, { rejectWithValue }) => {
         try {
-            console.log("masuk thunk data")
             const { data: { session }, error: sessionError } = await supabase.auth.getSession();
             if (sessionError) throw sessionError;
 

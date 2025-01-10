@@ -12,7 +12,6 @@ const Sidebar = ({ isOpen, sidebarRef, userSessions, logoutUser, toggleUserSetti
     // Event listener untuk mendeteksi klik di luar sidebar dan user settings
     useEffect(() => {
         const handleClickOutside = (event) => {
-            console.log("free click handleClickOutside");
             if (
                 userSettingsRef.current &&
                 !userSettingsRef.current.contains(event.target) &&
@@ -90,6 +89,7 @@ const Sidebar = ({ isOpen, sidebarRef, userSessions, logoutUser, toggleUserSetti
                                     <div
                                         className="py-2 px-4 block w-full"
                                         onClick={() => handleSessionMessage(session.session_id)}
+                                        key={index}
                                     >
                                         {session?.topic}
                                     </div>
@@ -111,7 +111,6 @@ const Sidebar = ({ isOpen, sidebarRef, userSessions, logoutUser, toggleUserSetti
                                             className="flex items-center gap-2 text-red-500 hover:bg-red-100 p-2 rounded-md"
                                             onClick={() => {
                                                 removeSession(session.session_id);
-                                                console.log("Delete clicked")
                                             }}
                                         >
                                             <svg
@@ -170,51 +169,48 @@ const Sidebar = ({ isOpen, sidebarRef, userSessions, logoutUser, toggleUserSetti
                             </div>
                         )}
                     </div>
-                    <ul className="space-y-1.5 p-4 shadow-lg">
-                        <div>
-
-                            <li>
-                                <a
-                                    className="flex items-center gap-x-3 py-2 px-3 text-sm text-gray-700 rounded-lg hover:bg-gray-100 focus:outline-none focus:bg-gray-100 dark:text-neutral-400 dark:hover:bg-neutral-900 dark:hover:text-neutral-300 dark:focus:bg-neutral-900 dark:focus:text-neutral-300"
-                                    href="#"
+                    <ul key="setting" className="space-y-1.5 p-4 shadow-lg">
+                        <li key="pricing-page">
+                            <div
+                                className="flex items-center gap-x-3 py-2 px-3 text-sm text-gray-700 rounded-lg hover:bg-gray-100 focus:outline-none focus:bg-gray-100 dark:text-neutral-400 dark:hover:bg-neutral-900 dark:hover:text-neutral-300 dark:focus:bg-neutral-900 dark:focus:text-neutral-300"
+                                href="#"
+                            >
+                                <svg
+                                    className="shrink-0 size-4 text-blue-600"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="24"
+                                    height="24"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    strokeWidth="2"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
                                 >
-                                    <svg
-                                        className="shrink-0 size-4 text-blue-600"
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        width="24"
-                                        height="24"
-                                        viewBox="0 0 24 24"
-                                        fill="none"
-                                        stroke="currentColor"
-                                        strokeWidth="2"
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                    >
-                                        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
-                                    </svg>
-                                    <Link to="/pricing">
-                                        <span className="bg-clip-text bg-gradient-to-tl from-blue-600 to-violet-600 text-transparent">
-                                            Upgrade Plan
-                                        </span>
-                                    </Link>
-                                </a>
-                            </li>
+                                    <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+                                </svg>
+                                <Link to="/pricing">
+                                    <span className="bg-clip-text bg-gradient-to-tl from-blue-600 to-violet-600 text-transparent">
+                                        Upgrade Plan
+                                    </span>
+                                </Link>
+                            </div>
+                        </li>
 
-                            <li>
-                                <a
-                                    onClick={toggleUserSettings}
-                                    className="flex items-center gap-x-3 py-2 px-3 text-sm text-gray-700 rounded-lg hover:bg-gray-100 focus:outline-none focus:bg-gray-100 dark:text-neutral-400 dark:hover:bg-neutral-900 dark:hover:text-neutral-300 dark:focus:bg-neutral-900 dark:focus:text-neutral-300"
-                                    href="#"
-                                >
-                                    <div className="chat-image avatar">
-                                        <div className="w-10 rounded-full">
-                                            <img alt="user profile" src="./user_default.jpg" />
-                                        </div>
+                        <li key="user-setting">
+                            <div
+                                onClick={toggleUserSettings}
+                                className="flex items-center gap-x-3 py-2 px-3 text-sm text-gray-700 rounded-lg hover:bg-gray-100 focus:outline-none focus:bg-gray-100 dark:text-neutral-400 dark:hover:bg-neutral-900 dark:hover:text-neutral-300 dark:focus:bg-neutral-900 dark:focus:text-neutral-300 cursor-pointer"
+                                href="#"
+                            >
+                                <div className="chat-image avatar">
+                                    <div className="w-10 rounded-full">
+                                        <img alt="user profile" src="./user_default.jpg" />
                                     </div>
-                                    User
-                                </a>
-                            </li>
-                        </div>
+                                </div>
+                                User
+                            </div>
+                        </li>
                     </ul>
                 </div>
             </nav>

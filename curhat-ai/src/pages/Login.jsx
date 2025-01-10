@@ -10,18 +10,17 @@ const Login = () => {
     const [error, setError] = useState(''); // State for error messages
     const navigate = useNavigate();
 
-    const handleLogin = async (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        setError(''); // Reset error state
 
-        if (!email.includes('@')) {
-            alert('Please enter a valid email');
+        if (!email || !password) {
+            alert('Please enter a valid email and password');
             return;
         }
 
         try {
             // Menggunakan Supabase untuk autentikasi email dan password
-            const { error } = await supabase.auth.signInWithPassword({
+            const { data, error } = await supabase.auth.signInWithPassword({
                 email,
                 password,
             });
@@ -29,9 +28,25 @@ const Login = () => {
             if (error) {
                 setError('Invalid login credentials');
             } else {
-                // Simpan status autentikasi jika berhasil
-                localStorage.setItem('isAuthenticated', 'true');
-                navigate('/newChat');
+                // Ambil user data setelah login berhasil
+                const { user } = data;
+                if (user) {
+                    // Ambil display_name dari metadata user
+                    const { data: userData, error: userError } = await supabase
+                        .from('users')
+                        .select('display_name')
+                        .eq('id', user.id)
+                        .single();
+
+                    if (userError) {
+                        setError('Failed to fetch user data');
+                    } else {
+                        // Simpan display_name dan status autentikasi di localStorage
+                        localStorage.setItem('isAuthenticated', 'true');
+                        localStorage.setItem('displayName', userData.display_name);
+                        navigate('/newChat');
+                    }
+                }
             }
         } catch (err) {
             setError('An unexpected error occurred. Please try again.');
@@ -43,7 +58,7 @@ const Login = () => {
             <div className="w-full max-w-md p-8 space-y-8 bg-white shadow-md rounded-md">
                 <h2 className="text-2xl font-bold text-center text-gray-800">Login</h2>
                 {error && <p className="text-center text-red-500">{error}</p>} {/* Display error message */}
-                <form onSubmit={handleLogin} className="space-y-6">
+                <form onSubmit={handleSubmit} className="space-y-6">
                     <div>
                         <label htmlFor="email" className="block text-sm font-medium text-gray-700">
                             Email
