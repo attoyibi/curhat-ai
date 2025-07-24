@@ -10,7 +10,71 @@ deployment app : https://curhat-ai.vercel.app/
 - Chat with OpenAI integration
 - Chat session management
 - Responsive design with Tailwind CSS
+## 📸 Tangkapan Layar Fitur Aplikasi
 
+Berikut adalah beberapa tangkapan layar dari fitur-fitur utama dalam aplikasi:
+
+---
+
+### 1. 🏠 Landing Page
+Halaman awal yang muncul ketika pengguna pertama kali membuka aplikasi.
+
+![alt text](image.png)
+
+---
+
+### 2. 📝 Halaman Register
+Formulir untuk mendaftar sebagai pengguna baru.
+
+![alt text](image-1.png)
+![alt text](image-2.png)
+**Fitur:**
+- Input nama, email, dan password
+- Validasi form input
+- Link ke halaman login
+
+---
+
+### 3. 🔐 Halaman Login
+Formulir untuk pengguna yang sudah memiliki akun.
+
+![alt text](image-3.png)
+
+**Fitur:**
+- Input email dan password
+- Validasi akun
+- Pesan error jika login gagal
+
+---
+
+### 4. 💬 Chat dengan AI
+Fitur utama untuk berinteraksi dengan AI secara langsung.
+
+![alt text](image-4.png)
+
+**Fitur:**
+- Input pertanyaan
+- Respons real-time dari AI
+- Tampilan percakapan yang interaktif
+
+---
+
+### 5. ✅ Hasil Jawaban AI
+Contoh tampilan hasil jawaban dari AI.
+
+![alt text](image-5.png)
+
+---
+
+### 6. ℹ️ Pricing
+Halaman yang menjelaskan tentang harga dari aplikasi.
+
+![alt text](image-6.png)
+
+**Fitur:**
+- Harga berlangganan
+- Fitur yang didapatkan pada setiap paket
+---
 ## Technologies Used
 
 - [React](https://reactjs.org/)
