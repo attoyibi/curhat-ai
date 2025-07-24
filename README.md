@@ -10,70 +10,74 @@ deployment app : https://curhat-ai.vercel.app/
 - Chat with OpenAI integration
 - Chat session management
 - Responsive design with Tailwind CSS
-## 📸 Tangkapan Layar Fitur Aplikasi
+## Application Feature Screenshots
 
-Berikut adalah beberapa tangkapan layar dari fitur-fitur utama dalam aplikasi:
+Below are several screenshots of the main features in the application:
 
 ---
 
-### 1. 🏠 Landing Page
-Halaman awal yang muncul ketika pengguna pertama kali membuka aplikasi.
+### 1. Landing Page  
+The initial page that appears when users first open the application.
 
 ![alt text](image.png)
 
 ---
 
-### 2. 📝 Halaman Register
-Formulir untuk mendaftar sebagai pengguna baru.
+### 2. Register Page  
+A form to sign up as a new user.
 
-![alt text](image-1.png)
-![alt text](image-2.png)
-**Fitur:**
-- Input nama, email, dan password
-- Validasi form input
-- Link ke halaman login
+![alt text](image-1.png)  
+![alt text](image-7.png)  
+
+**Features:**  
+- Name, email, and password input  
+- Form input validation  
+- Link to login page  
 
 ---
 
-### 3. 🔐 Halaman Login
-Formulir untuk pengguna yang sudah memiliki akun.
+### 3. Login Page  
+A form for users who already have an account.
 
 ![alt text](image-3.png)
 
-**Fitur:**
-- Input email dan password
-- Validasi akun
-- Pesan error jika login gagal
+**Features:**  
+- Email and password input  
+- Account validation  
+- Error message on failed login  
 
 ---
 
-### 4. 💬 Chat dengan AI
-Fitur utama untuk berinteraksi dengan AI secara langsung.
+### 4. Chat with AI  
+The main feature for directly interacting with AI.
 
-![alt text](image-4.png)
+![alt text](image-4.png)  
+![alt text](image-8.png)  
+![alt text](image-9.png)
 
-**Fitur:**
-- Input pertanyaan
-- Respons real-time dari AI
-- Tampilan percakapan yang interaktif
+**Features:**  
+- Ask questions via input  
+- Real-time AI responses  
+- Interactive conversation display  
+- Supports multiple languages used in the chat  
 
 ---
 
-### 5. ✅ Hasil Jawaban AI
-Contoh tampilan hasil jawaban dari AI.
+### 5. AI Answer Output  
+Example view of the AI-generated response.
 
 ![alt text](image-5.png)
 
 ---
 
-### 6. ℹ️ Pricing
-Halaman yang menjelaskan tentang harga dari aplikasi.
+### 6. Pricing  
+A page that explains the pricing of the application.
 
 ![alt text](image-6.png)
 
-**Fitur:**
-- Harga berlangganan
-- Fitur yang didapatkan pada setiap paket
+**Features:**  
+- Subscription pricing  
+- Features included in each plan  
 ---
 ## Technologies Used
 
