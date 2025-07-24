@@ -26,13 +26,12 @@ The initial page that appears when users first open the application.
 ### 2. Register Page  
 A form to sign up as a new user.
 
-![alt text](image-1.png)  
-![alt text](image-7.png)  
-
-**Features:**  
-- Name, email, and password input  
-- Form input validation  
-- Link to login page  
+![alt text](image-1.png)
+![alt text](image-7.png)
+**Fitur:**
+- Input nama, email, dan password
+- Validasi form input
+- Link ke halaman login
 
 ---
 
