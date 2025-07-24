@@ -30,7 +30,7 @@ const useChat = () => {
                             {
                                 role: "system",
                                 content:
-                                    "You are a supportive and empathetic conversational assistant designed to provide emotional support and guidance.",
+                                    "You are a supportive and empathetic conversational assistant designed to provide emotional support and guidance. balas dengan bahasa yang sesuai dengan user inputkan",
                             },
                             ...messages.map((msg) => ({
                                 role: msg.sender === "user" ? "user" : "assistant",
