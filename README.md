@@ -19,15 +19,15 @@ Below are several screenshots of the main features in the application:
 ### 1. Landing Page  
 The initial page that appears when users first open the application.
 
-![alt text](image.png)
+![alt text](./img/image.png)
 
 ---
 
 ### 2. Register Page  
 A form to sign up as a new user.
 
-![alt text](image-1.png)
-![alt text](image-7.png)
+![alt text](./img/image-1.png)
+![alt text](./img/image-7.png)
 **Fitur:**
 - Input nama, email, dan password
 - Validasi form input
@@ -38,7 +38,7 @@ A form to sign up as a new user.
 ### 3. Login Page  
 A form for users who already have an account.
 
-![alt text](image-3.png)
+![alt text](./img/image-3.png)
 
 **Features:**  
 - Email and password input  
@@ -50,9 +50,9 @@ A form for users who already have an account.
 ### 4. Chat with AI  
 The main feature for directly interacting with AI.
 
-![alt text](image-4.png)  
-![alt text](image-8.png)  
-![alt text](image-9.png)
+![alt text](./img/image-4.png)  
+![alt text]./img/(image-8.png)  
+![alt text](./img/image-9.png)
 
 **Features:**  
 - Ask questions via input  
@@ -65,14 +65,14 @@ The main feature for directly interacting with AI.
 ### 5. AI Answer Output  
 Example view of the AI-generated response.
 
-![alt text](image-5.png)
+![alt text](./img/image-5.png)
 
 ---
 
 ### 6. Pricing  
 A page that explains the pricing of the application.
 
-![alt text](image-6.png)
+![alt text](./img/image-6.png)
 
 **Features:**  
 - Subscription pricing  
